@@ -3,6 +3,26 @@ const Router = express.Router();
 const serverResponse = require('../../Network/response');
 const controller = require('./controller')
 
+/**
+ * @swagger
+ * /api/clients:
+ *  get:
+ *      tags:
+ *        - "Client"
+ *      description: Get client's information by id
+ *      parameters:
+ *       - in: path
+ *         name: Id
+ *         required: false
+ *      responses:
+ *          200:
+ *              description: Success
+ *          401:
+ *              description: Bad credentials
+ *      security:
+ *          - bearerAuth: []
+ */
+
 Router.get('/', (req, res) => {
     controller.getClient(req.query)
     .then(data => {
