@@ -24,6 +24,7 @@ const controller = require('./controller')
  */
 
 Router.get('/', (req, res) => {
+    console.log(req, res)
     controller.getClient(req.query)
     .then(data => {
         serverResponse.success(req, res, data, 200);
